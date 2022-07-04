@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+    outline: none;
+    background: none;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, violet 0%, darkred 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    border:2px solid blanchedalmond;
+    border-radius: 15px;
+    box-shadow: 0px 0px 11px 4px violet;
+    max-width: 100%;
+    width: 300px;
+}
+.container h1{
+    text-align: center;
+    margin-top: 10px;
+    text-decoration:underline bisque;
+    color: bisque;
+}
+.form-group{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+}
+.form-group label{
+    
+    font: bold;
+    color: bisque;
+    box-shadow:0px 2px 0px bisque;
+    display: inline;
+    margin-bottom: 2px;
+}
+.form-group input{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 3px solid violet;
+    background:none;
+    color:burlywood ;
+    outline: none;
+}
+.form-group input::placeholder{
+    color: violet;
+    overflow: none;
+    font-family: 'Courier New', Courier, monospace;
+    bottom:0px;
+    margin-bottom: -10px;
+    
+}
+.form-group img{
+    width: 16px;
+    position: absolute;
+    right: 15px;
+    top: 35px;
+    visibility:hidden;
+    
+
+}
+.form-group button{
+    margin-left: 14px;
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0px 0px 2px 0px darkred;
+    width: 90%;
+    background-image: linear-gradient(45deg, darkred -50%, violet 100%);
+    transition:ease-in 0.3s;
+    border: none;
+    font: bolder;
+    color: darkred;
+    margin-bottom: 2px;
+
+    
+}
+.form-group button:hover{
+    background-image: linear-gradient(45deg,  violet 0%, darkred 100%);
+    color:antiquewhite;
+
+}
+a{
+ position: relative;
+ margin: 20%;
+ color: darkred;
+ text-decoration: none;
+ text-shadow: 2px 1px 3px darkred;
+ transition: all 0.2s;
+}
+a:hover{
+    color: violet;
+    text-shadow: 1px 10px 10px violet;
+}
+.form.sucess{
+    visibility: visible;
+}
+.form.erro{
+    visibility: visible;
+    
+}
+.form-group span{
+    color: rgba(242, 86, 62, 0.913);
+    text-shadow: 2px 1px 3px red;
+    visibility: hidden;
+}
