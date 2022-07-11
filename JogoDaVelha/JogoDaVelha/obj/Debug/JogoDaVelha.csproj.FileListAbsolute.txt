@@ -1,0 +1,8 @@
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\bin\Debug\JogoDaVelha.exe.config
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\bin\Debug\JogoDaVelha.exe
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\bin\Debug\JogoDaVelha.pdb
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.csproj.AssemblyReference.cache
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.csproj.SuggestedBindingRedirects.cache
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.csproj.CoreCompileInputs.cache
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.exe
+C:\workspace\projetos-e-desenvolvimentos\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.pdb
