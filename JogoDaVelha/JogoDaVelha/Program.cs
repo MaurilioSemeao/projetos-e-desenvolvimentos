@@ -131,135 +131,162 @@ namespace JogoDaVelha
             string player1 = "[ X ]";
             string player2 = "[ O ]";
             string escolha = "";
+            string jogarNovamente = "";
             string jogadorVitorioso = "";
             bool vezJogador = true;
             int cont = 0;
             bool condVitoria = false;
             string namePlayer1 = "Player 1";
             string namePlayer2 = "Player 2";
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\t\tJOGO DA VELHA\n\n");
+            
+            
+            
+            Console.WriteLine("Insira o nome do Player 1:");
+            namePlayer1 = Console.ReadLine();
+            Console.WriteLine("\nIsnira o nome do Player 2:");
+            namePlayer2 = Console.ReadLine();
+            
+            Console.WriteLine($"O {namePlayer1} marca com X  e {namePlayer2} marca com O\n\nAperte qualquer tecla para começar");
+            Console.ReadKey();
+            Console.Clear();
+            
 
-
-            Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
-            Tabuleiro(tabela);
-            Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
-            while (condVitoria != true)
+            do
             {
-                
-                if(vezJogador == true)
+                Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
+                Tabuleiro(tabela);
+                Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
+
+                while (condVitoria != true)
                 {
-                    //Jogada Player X
-                    Console.WriteLine("Escolha um valor de 1 a 8");
-                    while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) > 8)
+
+                    if (vezJogador == true)
                     {
-                        Console.Clear();
-                        Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
-                        EscreveTabuleito(tabela);
+                        //Jogada Player X
                         Console.WriteLine("Escolha um valor de 1 a 8");
-                    }
-                    for (int i = 0; i < 7; i++)
-                    {
-                        while (escolha == jogadas[i])
+                        while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) > 8)
                         {
                             Console.Clear();
-                            Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");     
+                            Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
                             EscreveTabuleito(tabela);
-                            Console.WriteLine("Esta Casa Ja foi Selecionada Seleicone outra Casa");
-                            Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
-                            while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) > 8)
+                            Console.WriteLine("Escolha um valor de 1 a 8");
+                        }
+                        for (int i = 0; i < 7; i++)
+                        {
+                            while (escolha == jogadas[i])
                             {
                                 Console.Clear();
                                 Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
                                 EscreveTabuleito(tabela);
                                 Console.WriteLine("Esta Casa Ja foi Selecionada Seleicone outra Casa");
                                 Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
+                                while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) > 8)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
+                                    EscreveTabuleito(tabela);
+                                    Console.WriteLine("Esta Casa Ja foi Selecionada Seleicone outra Casa");
+                                    Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
+                                }
+                                i = 0;
                             }
-                            i = 0;
                         }
-                    }
-                    if (int.Parse(escolha) < 8)
-                        jogadas[cont] = escolha.TrimStart();      
-                    Console.Clear();
-                    SelecionaCasa(tabela, player1, escolha);
-                    //escrevendo a tabela prara a vez do player 2
-                    Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
-                    EscreveTabuleito(tabela);
-                    Console.WriteLine($"sua Vez {namePlayer2} você marca coma {player2} ");
-                    jogadorVitorioso = condicaoVitoria(tabela, player1);
-                    if (cont == 8 && jogadorVitorioso == "")
-                        break;
-
-                    if (jogadorVitorioso != "")
-                    {
-                        jogadorVitorioso += namePlayer1;
-                        condVitoria = true;
-                        break;
-                    }
-                    vezJogador =false;
-                }
-                else
-                {
-                    //jogada Player O
-                    Console.WriteLine("escolha um valor de 1 a 8");
-                    while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) >8)
-                    {
+                        if (int.Parse(escolha) < 8)
+                            jogadas[cont] = escolha.TrimStart();
                         Console.Clear();
+                        SelecionaCasa(tabela, player1, escolha);
+                        //escrevendo a tabela prara a vez do player 2
                         Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
                         EscreveTabuleito(tabela);
-                        Console.WriteLine("Digite um valor valido");
-                        Console.WriteLine($"sua Vez {namePlayer2} você marca com {player2} ");
+                        Console.WriteLine($"sua Vez {namePlayer2} você marca coma {player2} ");
+                        jogadorVitorioso = condicaoVitoria(tabela, player1);
+                        if (cont == 8 && jogadorVitorioso == "")
+                            break;
+
+                        if (jogadorVitorioso != "")
+                        {
+                            jogadorVitorioso += namePlayer1;
+                            condVitoria = true;
+                            break;
+                        }
+                        vezJogador = false;
                     }
-                    for (int i = 0; i < 7; i++)
+                    else
                     {
-                        while (escolha == jogadas[i])
+                        //jogada Player O
+                        Console.WriteLine("escolha um valor de 1 a 8");
+                        while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) > 8)
                         {
                             Console.Clear();
                             Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
                             EscreveTabuleito(tabela);
-                            Console.WriteLine("Esta Casa Ja foi Selecionada Seleicone outra Casa");
+                            Console.WriteLine("Digite um valor valido");
                             Console.WriteLine($"sua Vez {namePlayer2} você marca com {player2} ");
-                            while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) > 8)
+                        }
+                        for (int i = 0; i < 7; i++)
+                        {
+                            while (escolha == jogadas[i])
                             {
                                 Console.Clear();
                                 Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
                                 EscreveTabuleito(tabela);
-                                Console.WriteLine("Digite um valor valido");
+                                Console.WriteLine("Esta Casa Ja foi Selecionada Seleicone outra Casa");
                                 Console.WriteLine($"sua Vez {namePlayer2} você marca com {player2} ");
+                                while (string.IsNullOrEmpty(escolha = Console.ReadLine()) || !char.IsDigit(escolha, 0) || int.Parse(escolha) > 8)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
+                                    EscreveTabuleito(tabela);
+                                    Console.WriteLine("Digite um valor valido");
+                                    Console.WriteLine($"sua Vez {namePlayer2} você marca com {player2} ");
+                                }
+
+                                i = 0;
                             }
-
-                            i =0;
                         }
-                    }
-                    if(int.Parse(escolha) < 8)
-                        jogadas[cont] = escolha.TrimStart();
-                    Console.Clear();
-                    SelecionaCasa(tabela, player2, escolha.Trim());
-                    //escrevendo a tabela para a vez do player 1
-                    Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
-                    EscreveTabuleito(tabela);
-                    Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
-                    jogadorVitorioso = condicaoVitoria(tabela, player2);
+                        if (int.Parse(escolha) < 8)
+                            jogadas[cont] = escolha.TrimStart();
+                        Console.Clear();
+                        SelecionaCasa(tabela, player2, escolha.Trim());
+                        //escrevendo a tabela para a vez do player 1
+                        Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
+                        EscreveTabuleito(tabela);
+                        Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
+                        jogadorVitorioso = condicaoVitoria(tabela, player2);
 
-                    if (cont == 8 && jogadorVitorioso == "")
-                        break;
+                        if (cont == 8 && jogadorVitorioso == "")
+                            break;
 
-                    if (jogadorVitorioso != "")
-                    {
-                        jogadorVitorioso += namePlayer1;
-                        condVitoria = true;
-                        break;
+                        if (jogadorVitorioso != "")
+                        {
+                            jogadorVitorioso += namePlayer1;
+                            condVitoria = true;
+                            break;
+                        }
+                        vezJogador = true;
                     }
-                    vezJogador = true;
+                    cont++;
                 }
-                cont++;
-            }
-            if(cont == 8 && jogadorVitorioso=="")
-            {
-                Console.WriteLine("\nO Jogo Empatou!");
-            }else if (jogadorVitorioso != "")
-            {
-                
-            Console.WriteLine($"\nO Player {jogadorVitorioso} Venceu !");
-            }
+                if (cont == 8 && jogadorVitorioso == "")
+                {
+                    Console.WriteLine("\nO Jogo Empatou!");
+                } else if (jogadorVitorioso != "")
+                {
+
+                    Console.WriteLine($"\nO Player {jogadorVitorioso} Venceu !");
+                }
+
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Deseja Jogar Novamente ?\nS para sim\nN para não");
+                while(string.IsNullOrEmpty(jogadorVitorioso = Console.ReadLine()))
+                {
+                    Console.WriteLine("Deseja Jogar Novamente ?\nS para sim\nN para não");
+                }
+
+
+            } while(jogarNovamente != "N" || jogarNovamente != "n");
 
        
             Console.ReadKey();
