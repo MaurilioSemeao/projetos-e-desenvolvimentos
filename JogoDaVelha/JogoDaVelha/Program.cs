@@ -153,8 +153,7 @@ namespace JogoDaVelha
             Console.Clear();
             
 
-            do
-            {
+           
                 Console.WriteLine($"{namePlayer1} X {namePlayer2}\n");
                 Tabuleiro(tabela);
                 Console.WriteLine($"sua Vez {namePlayer1} você marca coma {player1} ");
@@ -277,17 +276,7 @@ namespace JogoDaVelha
 
                     Console.WriteLine($"\nO Player {jogadorVitorioso} Venceu !");
                 }
-
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("Deseja Jogar Novamente ?\nS para sim\nN para não");
-                while(string.IsNullOrEmpty(jogadorVitorioso = Console.ReadLine()))
-                {
-                    Console.WriteLine("Deseja Jogar Novamente ?\nS para sim\nN para não");
-                }
-
-
-            } while(jogarNovamente != "N" || jogarNovamente != "n");
-
+                
        
             Console.ReadKey();
 
